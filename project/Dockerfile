@@ -6,7 +6,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 RUN apt-get update \
-    && apt-get -y install netcat gcc \
+    && apt-get -y install netcat gcc postgresql \
     && apt-get clean
 
 RUN pip install --upgrade pip
@@ -17,3 +17,8 @@ RUN poetry config virtualenvs.create false \
     && poetry install
 
 COPY . .
+
+COPY ./entrypoint.sh .
+RUN chmod +x /usr/src/app/entrypoint.sh
+
+ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
