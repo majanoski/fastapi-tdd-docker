@@ -5,9 +5,9 @@ description = ""
 authors = ["Mike Janoski <maj@mikejanoski.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.8"
 fastapi = "0.63.0"
-uvicorn = "0.13.4"
+uvicorn = {extras = ["standard"], version = "^0.13.4"}
 asyncpg = "0.22.0"
 tortoise-orm = "0.16.21"
 pytest = "6.2.2"
